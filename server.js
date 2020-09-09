@@ -1,12 +1,15 @@
 const http = require('http')
 const express = require('express')
 const socketIO = require('socket.io')
+const cors = require('cors');
+
 
 let app = express()
 let server = http.createServer(app)
 let io = socketIO(server)
 
 app.use(express.json())
+app.use(cors());
 
 let Twit = require('twit')
 const port = process.env.PORT || 5000;
